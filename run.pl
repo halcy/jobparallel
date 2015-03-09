@@ -71,7 +71,7 @@ sub worker() {
             `$command`;
             print "Thread $tid (command $small_command) succeeded\n";
             print "Thread $tid success errlog: $errlog\n";
-            print "Thread $tid success errlog: $outlog\n";
+            print "Thread $tid success outlog: $outlog\n";
         }
         else {
             my $command = $ERROR_COMMAND;
@@ -81,7 +81,7 @@ sub worker() {
             $command =~ s/__OUTLOG__/$outlog/g;            `$command`;
             print "Thread $tid (command $small_command) FAILED\n";
             print "Thread $tid FAILURE errlog: $errlog\n";
-            print "Thread $tid FAILURE errlog: $outlog\n";
+            print "Thread $tid FAILURE outlog: $outlog\n";
         }
         threads->yield();
     }
